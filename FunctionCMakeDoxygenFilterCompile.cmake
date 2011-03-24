@@ -68,7 +68,7 @@ function(FunctionCMakeDoxygenFilterCompile)
     set(compile_defs "${compile_defs} -DUSE_NAMESPACE=${FILTER_NAMESPACE}")
   endif()
 
-  set(cmake_doxygen_filter_url "file:///home/zelzer/src/CMakeDoxygenFilter/CMakeDoxygenFilter.cpp")
+  set(cmake_doxygen_filter_url "https://github.com/saschazelzer/CMakeDoxygenFilter/raw/master/CMakeDoxygenFilter.cpp")
   set(cmake_doxygen_filter_src "${CMAKE_CURRENT_BINARY_DIR}/CMakeDoxygenFilter.cpp")
 
   file(DOWNLOAD "${cmake_doxygen_filter_url}" "${cmake_doxygen_filter_src}" STATUS status)
