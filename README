@@ -21,6 +21,13 @@ You can build the executable in two ways:
     of CMake. You can use the CMake function in the supplied
     file FunctionCMakeDoxygenFilterCompile.cmake, which also
     briefly demonstrates how to document a CMake function.
+    
+The following compile-time configuration options are available by
+using defines:
+
+* -DUSE_NAMESPACE=<your-namespace>
+  This will wrap all generated function declarations in the
+  namespace <your-namespace> (you could use -DUSE_NAMESPACE=CMake)
 
 ---------------- Converting CMake expressions to C -------------------
 
@@ -31,18 +38,18 @@ The filter executable recognizes the following CMake constructs:
   comment line is printed out unmodified.
   
 - Macro definitions
-  A CMake macro is converted to a C macro. For example, the CMake
+  A CMake macro is converted to a C function. For example, the CMake
   macro
   
     macro(MyCMakeMacro arg1 arg2)
     endmacro()
     
-  will be converted to the C style macro
+  will be converted to the C function
   
-    #define MyCMakeMacro(arg1, arg2)
+    MyCMakeMacro(arg1, arg2)
     
 - Function definitions
-  A CMake function is converted to a global C function. For example,
+  A CMake function is converted to a C function. For example,
   the CMake function
   
     function(MyCMakeFunction arg1)
