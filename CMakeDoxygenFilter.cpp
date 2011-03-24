@@ -285,7 +285,7 @@ private:
       return false;
     }
 
-    _os << "#define " << macroName << '(';
+    _os << macroName << '(';
     if (nextToken() == CMakeLexer::TOK_IDENTIFIER)
     {
       _os << _lexer.getIdentifier();
@@ -301,7 +301,7 @@ private:
     }
     else
     {
-      _os << ")" << std::endl;
+      _os << ");" << std::endl;
     }
 
     // eat the ')'
@@ -341,7 +341,7 @@ private:
     }
     else
     {
-      _os << ") {}" << std::endl;
+      _os << ");" << std::endl;
     }
 
     // eat the ')'
