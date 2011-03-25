@@ -71,6 +71,11 @@ function(FunctionCMakeDoxygenFilterCompile)
   set(cmake_doxygen_filter_url "https://github.com/saschazelzer/CMakeDoxygenFilter/raw/master/CMakeDoxygenFilter.cpp")
   set(cmake_doxygen_filter_src "${CMAKE_CURRENT_BINARY_DIR}/CMakeDoxygenFilter.cpp")
 
+  # If downloading on Windows fails with a "unsupported protocol" error, your CMake
+  # version is not build with SSL support. Either build CMake yourself with
+  # CMAKE_USE_OPENSSL enabled, or copy https://github.com/saschazelzer/CMakeDoxygenFilter/raw/master/CMakeDoxygenFilter.cpp
+  # into your repository and set cmake_doxygen_filter_src to your local copy
+  # and remove the download code below.
   file(DOWNLOAD "${cmake_doxygen_filter_url}" "${cmake_doxygen_filter_src}" STATUS status)
   list(GET status 0 error_code)
   list(GET status 1 error_msg)
