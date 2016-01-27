@@ -413,10 +413,10 @@ private:
     _os << funcName << '(';
     if (nextToken() == CMakeLexer::TOK_IDENTIFIER)
     {
-      _os << _lexer.getIdentifier();
+      _os << "CMAKE_VARIABLE " << _lexer.getIdentifier();
       while (nextToken() == CMakeLexer::TOK_IDENTIFIER)
       {
-        _os << ", " << _lexer.getIdentifier();
+        _os << ", CMAKE_VARIABLE " << _lexer.getIdentifier();
       }
     }
 
