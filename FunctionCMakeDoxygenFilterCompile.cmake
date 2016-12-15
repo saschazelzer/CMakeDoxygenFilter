@@ -1,11 +1,11 @@
 #!
 #! \brief Download and compile a CMake doxygen input filter
 #!
-#! \param OUT <out-file> (optional) Supply an absolute filename for
+#! \param OUT (optional) Supply an absolute filename for
 #!                       the generated executable.
-#! \param NAMESPACE <namespace> (optional) Supply a C++ namespace in
-#!                              which the generated function declrarations
-#!                              should be wrapped.
+#! \param NAMESPACE (optional) Supply a C++ namespace in
+#!                             which the generated function declrarations
+#!                             should be wrapped.
 #!
 #! \return This function sets the <code>CMakeDoxygenFilter_EXECUTABLE</code>
 #!         variable to the absolute path of the generated input filter executable
@@ -15,7 +15,7 @@
 #! project into a doxygen input filter executable. See
 #! http://github.com/saschazelzer/CMakeDoxygenFilter/blob/master/README for more details.
 #!
-function(FunctionCMakeDoxygenFilterCompile)
+function(FunctionCMakeDoxygenFilterCompile OUT NAMESPACE)
 
   #-------------------- parse function arguments -------------------
 
